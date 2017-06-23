@@ -41,6 +41,29 @@ import { ANIMATABLE_SPEED } from '../../reducers/ConstValue';
 
 const WINDOW = Dimensions.get('window');
 
+// import GL from 'gl-react';
+// const GL = require('gl-react');
+// const { Surface } = require('gl-react-native'); // in React Native context
+
+// const shaders = GL.Shaders.create({
+//   helloGL: {
+//     frag: `
+// precision highp float;
+// varying vec2 uv;
+// uniform float blue;
+// void main () {
+//   gl_FragColor = vec4(uv.x, uv.y, blue, 1.0);
+// }`
+//   }
+// });
+
+// // create React components
+// const HelloGL = GL.createComponent(({ blue }) => (
+//   <GL.Node shader={shaders.helloGL} uniforms={{ blue }} />
+// ));
+
+import Example from './gl';
+
 class Photo extends Component {
   constructor(props) {
     super(props);
@@ -165,81 +188,7 @@ class Photo extends Component {
       const { showFullImage, isLoading } = this.state;
       return (
         <View style={styles.body}>
-          <LinearGradient
-            colors={[oc.gray8, oc.gray7, oc.gray8]}
-            style={styles.linearGradient}
-          >
-            <StatusBar
-              backgroundColor="blue"
-              barStyle="light-content"
-              hidden={true}
-            />
-            <TouchableWithoutFeedback
-              onPress={() => {
-                if (this.isHandling) {
-                  return;
-                }
-                this.setIsShowAppNavigator(!isShowAppNavigator);
-              }}
-            >
-              <Animatable.View
-                ref="view"
-                animation="fadeInUp"
-                style={{ padding: 0 }}
-              >
-                <Image
-                  resizeMode={'contain'}
-                  source={{ uri: uri }}
-                  style={{
-                    width: WINDOW.width,
-                    height: WINDOW.height
-                  }}
-                />
-
-                {/*          <PhotoView
-            source={{ uri: uri }}
-            // minimumZoomScale={1}
-            // maximumZoomScale={3}
-            // onLoad={() => console.log('Image loaded!')}
-            enableTransform={true}
-            enableScale={true}
-            enableTranslate={true}
-            style={{ width: WINDOW.width, height: WINDOW.height }}
-          />*/}
-              </Animatable.View>
-            </TouchableWithoutFeedback>
-
-            <Animatable.View
-              ref={ref => (this.menu = ref)}
-              style={{
-                height: 56,
-                elevation: 8,
-                position: 'absolute',
-                left: 0,
-                bottom: 0,
-                right: 0
-              }}
-            >
-              <BottomMenuNavigation>
-                <Tab
-                  barBackgroundColor={oc.gray9}
-                  icon={<Entypo size={24} color="white" name="ccw" />}
-                />
-                <Tab
-                  barBackgroundColor={oc.gray9}
-                  icon={<Entypo size={24} color="white" name="palette" />}
-                />
-                <Tab
-                  barBackgroundColor={oc.gray9}
-                  icon={<Entypo size={24} color="white" name="adjust" />}
-                />
-                <Tab
-                  barBackgroundColor={oc.gray9}
-                  icon={<Entypo size={24} color="white" name="save" />}
-                />
-              </BottomMenuNavigation>
-            </Animatable.View>
-          </LinearGradient>
+          <Example/>
         </View>
       );
     } else {

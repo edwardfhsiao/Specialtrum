@@ -7,6 +7,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "gl-react": "^3.6.0",
+    "gl-react-native": "^3.6.0",
     "immutable": "^3.8.1",
     "object-assign": "^4.1.1",
     "open-color-js": "0.0.1",

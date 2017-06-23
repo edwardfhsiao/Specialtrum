@@ -64,11 +64,5 @@
 		<string>SimpleLineIcons.ttf</string>
 		<string>Zocial.ttf</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Photo Library Access Warning</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Camera Library Access Warning</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Microphone Library Access Warning</string>
 </dict>
 </plist>
